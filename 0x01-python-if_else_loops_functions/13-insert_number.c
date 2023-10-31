@@ -11,18 +11,16 @@
 */
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *slow, *fast;
-	listint_t *new_node = malloc(sizeof(listint_t));
+	listint_t *slow, *fast, *new_node;
 
+	if (*head == NULL)
+		return (add_nodeint_end(head, number));
+
+	new_node = malloc(sizeof(listint_t));
+	if (!new_node)
+		return (NULL);
 	new_node->n = number;
 	new_node->next = NULL;
-
-	if (head == NULL)
-	{
-		*head = new_node;
-		return (new_node);
-	}
-
 	slow = *head;
 	fast = (*head)->next;
 
@@ -49,6 +47,6 @@ listint_t *insert_node(listint_t **head, int number)
 		slow = slow->next;
 		fast = fast->next;
 	}
-	free_listint(new_node);
+	free(new_node);
 	return (NULL);
 }
