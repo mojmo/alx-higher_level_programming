@@ -17,6 +17,9 @@ int is_palindrome(listint_t **head)
 	while (tail->next)
 		tail = tail->next;
 
+	if (*head == NULL || *head == tail)
+		return (1);
+
 	return (is_palindrome_helper(*head, tail));
 }
 
@@ -30,7 +33,7 @@ int is_palindrome(listint_t **head)
  */
 int is_palindrome_helper(listint_t *head, listint_t *tail)
 {
-	if (head == NULL || head == tail || !tail)
+	if (head == NULL || head == tail || tail == NULL)
 		return (1);
 
 	if (is_palindrome_helper(head->next, tail - 2) && head->n == tail->n)
