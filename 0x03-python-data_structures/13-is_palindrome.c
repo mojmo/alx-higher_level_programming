@@ -12,15 +12,15 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *tail;
 
-	if (head == NULL)
-		return (0);
-
 	tail = *head;
 
 	while (tail->next)
 		tail = tail->next;
 
-	return (is_palindrome_helper(*head, tail));
+	if (head)
+		return (is_palindrome_helper(*head, tail));
+
+	return (0);
 }
 
 /**
@@ -29,8 +29,7 @@ int is_palindrome(listint_t **head)
  * @head: pointer to the first node of the list.
  * @tail: pointer to the last node of the list.
  *
- * Return: 1 if s is palindrome.
- *          0 if n not.
+ * Return: 1 if s is palindrome, 0 if n not.
  */
 int is_palindrome_helper(listint_t *head, listint_t *tail)
 {
