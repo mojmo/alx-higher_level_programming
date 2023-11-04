@@ -10,18 +10,24 @@
 */
 int is_palindrome(listint_t **head)
 {
-	int res;
 	listint_t *tail;
+	int len = 0;
+
+	if (*head == NULL || (*head)->next == NULL)
+		return (1);
 
 	tail = *head;
 
 	while (tail->next)
+	{
+		++len;
 		tail = tail->next;
+	}
 
-	if (*head != NULL && (*head)->next != NULL)
-		res = (is_palindrome_helper(*head, tail));
+	if (len == 1 && (*head)->n == tail->n)
+		return (1);
 
-	return (res);
+	return  (is_palindrome_helper(*head, tail));
 }
 
 /**
@@ -34,11 +40,11 @@ int is_palindrome(listint_t **head)
  */
 int is_palindrome_helper(listint_t *head, listint_t *tail)
 {
-	if (head == NULL || head == tail || tail == NULL)
+	if (!head  || (head == tail && head->n == tail->n) || !tail)
 		return (1);
 
-	if (is_palindrome_helper(head->next, tail - 2) && head->n == tail->n)
-		return (1);
+	if (head->n != tail->n)
+		return (0);
 
-	return (0);
+	return (is_palindrome_helper(head->next, tail - 2));
 }
