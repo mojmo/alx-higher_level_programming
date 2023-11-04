@@ -29,7 +29,7 @@ int is_palindrome(listint_t **head)
  */
 int is_palindrome_helper(listint_t *head, listint_t *tail)
 {
-	if (head == NULL || head = tail)
+	if (head == NULL || head == tail)
 		return (1);
 
 	if (head->n != tail->n)
