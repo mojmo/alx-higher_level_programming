@@ -10,6 +10,7 @@
 */
 int is_palindrome(listint_t **head)
 {
+	int res;
 	listint_t *tail;
 
 	tail = *head;
@@ -17,10 +18,10 @@ int is_palindrome(listint_t **head)
 	while (tail->next)
 		tail = tail->next;
 
-	if (*head == NULL || *head == tail)
-		return (1);
+	if (*head != NULL && (*head)->next != NULL)
+		res = (is_palindrome_helper(*head, tail));
 
-	return (is_palindrome_helper(*head, tail));
+	return (res);
 }
 
 /**
