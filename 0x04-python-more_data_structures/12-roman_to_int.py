@@ -1,8 +1,5 @@
 #!/usr/bin/python3
 
-from functools import reduce
-
-
 def roman_to_int(roman_string):
     """converts a Roman numeral to an integer."""
 
