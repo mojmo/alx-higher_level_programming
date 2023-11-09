@@ -29,10 +29,10 @@ void print_python_bytes(PyObject *p)
 
 	printf("  first %ld bytes: ", (size > 10 ? 10 : size + 1));
 
-	for (i = 0; i < (size > 10 ? 10 : size); i++)
+	for (i = 0; i <= size && i < 10; i++)
 	{
 		printf("%02x", (unsigned char)str[i]);
-		if (i < (size > 10 ? 9 : size - 1))
+		if (i < size && i < 9)
 			printf(" ");
 	}
 	printf("\n");
