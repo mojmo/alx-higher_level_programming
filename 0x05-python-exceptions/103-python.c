@@ -78,11 +78,10 @@ void print_python_float(PyObject *p)
 
 	value = ((PyFloatObject *)p)->ob_fval;
 	num_buf = PyOS_double_to_string(value, 'r', 0, Py_DTSF_ADD_DOT_0,
-			Py_DTST_FINITE);
+			NULL);
 
 	printf("  value: %s\n", num_buf);
 	setbuf(stdout, NULL);
-	PyMem_Free(num_buf);
 }
 
 /**
