@@ -28,6 +28,7 @@ void print_python_bytes(PyObject *p)
 	if (!PyBytes_Check(p))
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
+		setbuf(stdout, NULL);
 		return;
 	}
 
@@ -46,6 +47,7 @@ void print_python_bytes(PyObject *p)
 			printf(" ");
 	}
 	printf("\n");
+	setbuf(stdout, NULL);
 }
 
 /**
@@ -70,6 +72,7 @@ void print_python_float(PyObject *p)
 	if (!PyFloat_Check(p))
 	{
 		printf("  [ERROR] Invalid Float Object\n");
+		setbuf(stdout, NULL);
 		return;
 	}
 
@@ -78,6 +81,7 @@ void print_python_float(PyObject *p)
 			Py_DTST_FINITE);
 
 	printf("  value: %s\n", num_buf);
+	setbuf(stdout, NULL);
 	PyMem_Free(num_buf);
 }
 
@@ -104,6 +108,7 @@ void print_python_list(PyObject *p)
 	if (!PyList_Check(p))
 	{
 		printf("  [ERROR] Invalid List Object\n");
+		setbuf(stdout, NULL);
 		return;
 	}
 
@@ -125,4 +130,5 @@ void print_python_list(PyObject *p)
 		if (PyFloat_Check(element))
 			print_python_float(element);
 	}
+	setbuf(stdout, NULL);
 }
