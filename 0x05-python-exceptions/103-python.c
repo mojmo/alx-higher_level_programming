@@ -38,7 +38,7 @@ void print_python_bytes(PyObject *p)
 	printf("  size: %ld\n", size);
 	printf("  trying string: %s\n", str);
 
-	printf("  first %ld bytes: ", (size > 10 ? 10 : size + 1));
+	printf("  first %ld bytes: ", (size >= 10 ? 10 : size + 1));
 
 	for (i = 0; i <= size && i < 10; i++)
 	{
@@ -46,6 +46,7 @@ void print_python_bytes(PyObject *p)
 		if (i < size && i < 9)
 			printf(" ");
 	}
+
 	printf("\n");
 	setbuf(stdout, NULL);
 }
@@ -78,10 +79,11 @@ void print_python_float(PyObject *p)
 
 	value = ((PyFloatObject *)p)->ob_fval;
 	num_buf = PyOS_double_to_string(value, 'r', 0, Py_DTSF_ADD_DOT_0,
-			NULL);
+			Py_DTST_FINITE);
 
 	printf("  value: %s\n", num_buf);
 	setbuf(stdout, NULL);
+	PyMem_Free(num_buf);
 }
 
 /**
