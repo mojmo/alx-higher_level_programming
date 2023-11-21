@@ -90,7 +90,7 @@ class SinglyLinkedList:
         nodes = []
         curr_node = self.__head
 
-        while (curr_node.next_node is not None):
+        while (curr_node is not None):
             nodes.append(str(curr_node.data))
             curr_node = curr_node.next_node
 
