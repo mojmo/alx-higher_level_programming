@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 
+"""Define an empty class called Square"""
+
+
 class Square:
     """
     Represents a square.
 
-    This class serves as a basic template for creating square objects.
-    It currently does not have any specific attributes or methods defined.
+    This class provides a starting point for creating square objects.
     """
     pass
