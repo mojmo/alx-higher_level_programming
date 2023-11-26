@@ -1,0 +1,90 @@
+The ``0-add_integer`` module
+======================
+
+Using ``add_integer``
+-------------------
+
+Import add_integer function from the module:
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+1. Adding two positive integers:
+    >>> add_integer(1, 2)
+    3
+
+2. Adding two negative integers:
+    >>> add_integer(-10, -5)
+    -15
+
+3. Adding a positive integer to a negative integer:
+    >>> add_integer(100, -2)
+    98
+
+4. Adding a float number to a negative number:
+    >>> add_integer(100.3, -2)
+    98
+
+5. Adding two large integers:
+    >>> add_integer(1000000, 2000000)
+    3000000
+
+6. Adding string to integer:
+    >>> add_integer(4, "School")
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+7. Adding two strings:
+    >>> add_integer("abc", "School")
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+8. Do not provide any number:
+    >>> add_integer(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+9. Don't provide the second number:
+    >>> add_integer(2)
+    100
+
+10. Adding two negative floats:
+    >>> add_integer(-100.3, -5.7)
+    -105
+
+11. Adding positive infinte float to a negative infinte float:
+    >>> add_integer(float('inf'), float('-inf'))
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+12. Adding infinte float to a positive integer:
+    >>> add_integer(float('inf'), 15)
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+13. Test NaN:
+    >>> add_integer(float('nan'), 3)
+    Traceback (most recent call last):
+        ...
+    ValueError: cannot convert float NaN to integer
+
+14. Test a list:
+    >>> add_integer([], 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+15. Test a tuple:
+    >>> add_integer(3, (1, 2))
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+16. Case parameters are more than expected:
+    >>> add_integer(1, 2, 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given

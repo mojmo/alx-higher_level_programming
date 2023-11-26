@@ -1,0 +1,70 @@
+The ``4-print_square`` module
+======================
+
+Using ``print_square``
+-------------------
+
+Import print_square function from the module:
+    >>> print_square = __import__('4-print_square').print_square
+
+1. Test to print normal square:
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
+
+2. Try to provide a size of zero:
+    >>> print_square(0)
+
+3. Try to provide 1 as a size:
+    >>> print_square(1)
+    #
+
+4. Try to provide a positive float number as a size:
+    >>> print_square(4.0)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+5. Try providing a negative integer as a size:
+    >>> print_square(-4)
+    Traceback (most recent call last):
+        ...
+    ValueError: size must be >= 0
+
+6. Try providing a string as a size:
+    >>> print_square("4")
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+7. Run a test in which no parameters are provided:
+    >>> print_square()
+    Traceback (most recent call last):
+        ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
+
+8. Try to provide more parameters than expected:
+    >>> print_square(4, 1)
+    Traceback (most recent call last):
+        ...
+    TypeError: print_square() takes 1 positional argument but 2 were given
+
+9. Check for the None parameter:
+    >>> print_square(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+10. Try to test an infinite number:
+    >>> print_square(float('inf'))
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+11. Try providing a negative float as a parameter:
+    >>> print_square(-4.0)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
