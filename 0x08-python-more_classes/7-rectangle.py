@@ -5,18 +5,18 @@ This module defines a Rectangle class.
 
 The Rectangle class represents a geometric rectangle with width
 and height attributes and area() and perimeter() methods.
-
-Attributes:
-    number_of_instances (int): A class attribute that counts the
-    number of Rectangle instances.
-    print_symbol: The symbol used for representing the rectangle
-    units in the string representation.
-
 """
 
 
 class Rectangle:
-    """A class to represent a Rectangle"""
+    """A class to represent a Rectangle
+
+    Attributes:
+        number_of_instances (int): A class attribute that counts the
+        number of Rectangle instances.
+        print_symbol: The symbol used for representing the rectangle
+        units in the string representation.
+    """
 
     number_of_instances = 0
     print_symbol = "#"
