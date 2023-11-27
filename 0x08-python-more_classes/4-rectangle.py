@@ -40,6 +40,17 @@ class Rectangle:
 
         return rect[:-1]
 
+    def __repr__(self):
+        """Return a string representation of the Rectangle object.
+
+        Returns:
+            str: A string representation of the Rectangle object
+            in the format 'Rectangle(width, height)'.
+        """
+
+        rect = f"Rectangle({self.__width}, {self.__height})"
+        return rect
+
     @property
     def width(self):
         """Get the width of the rectangle.
