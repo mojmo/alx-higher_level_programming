@@ -5,7 +5,7 @@ Determines all possible solutions to placing N non-attacking queens
 on an NxN chessboard.
 
 Usage:
-    ./nqueens_solver.py N
+    ./101-nqeens N
 
 N must be an integer greater than or equal to 4.
 
@@ -89,7 +89,7 @@ if __name__ == "__main__":
     import sys
 
     if len(sys.argv) != 2:
-        print("Usage: nqueens_solver.py N")
+        print("Usage: nqueens N")
         sys.exit(1)
 
     n_value = sys.argv[1]
