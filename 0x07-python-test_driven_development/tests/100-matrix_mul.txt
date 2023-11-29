@@ -97,3 +97,15 @@ Import matrix_mul function from the module:
     Traceback (most recent call last):
         ...
     TypeError: m_a must be a list
+
+17. Try invalid multiplication for ma = List of lists of number / mb = List of integers
+    >>> matrix_mul([[1, 2], [3, 4], [5, 6]], [1, 2, 3, 4])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b must be a list of lists
+
+18. Try invalid multiplication for  ma = List of lists of number / mb = List of lists of not number
+    >>> matrix_mul([[1, 2], [3, 4]], [[1, "two"], [3, 4]])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b should contain only integers or floats
