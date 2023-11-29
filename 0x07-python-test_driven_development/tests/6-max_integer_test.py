@@ -28,6 +28,9 @@ class TestMaxInteger(unittest.TestCase):
     def test_negative_nmubers(self):
         self.assertEqual(max_integer([-4, -82, -1, -73]), -1)
 
+    def test_one_element(self):
+        self.assertEqual(max_integer([87]), 87)
+
     def test_empty_list(self):
         self.assertEqual(max_integer([]), None)
 
