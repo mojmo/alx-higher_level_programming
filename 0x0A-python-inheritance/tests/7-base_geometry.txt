@@ -8,14 +8,9 @@ Import MyList class from the module:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
     >>> bg = BaseGeometry()
 
-area method:
-    >>> bg.area()
-    Traceback (most recent call last):
-        ...
-    Exception: area() is not implemented
-
 Try normal number:
     >>> bg.integer_validator("my_int", 12)
+
 
 Try to pass string to the second argument:
     >>> bg.integer_validator("name", "John")
@@ -77,3 +72,9 @@ Try too many arguments:
         Traceback (most recent call last):
             ...
         TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
+
+area method:
+    >>> bg.area()
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
