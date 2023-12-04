@@ -66,10 +66,22 @@ Try to pass dictionary to the second argument:
     TypeError: name must be an integer
 
 Try to pass boolean value to the second argument:
-    >>> bg.integer_validator("name", {"num", True})
+    >>> bg.integer_validator("name", True)
     Traceback (most recent call last):
         ...
     TypeError: name must be an integer
+
+Try to pass None to the second argument:
+    >>> bg.integer_validator("name", None)
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+Try to pass None as argument:
+    >>> bg.integer_validator(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
 
 Try to pass empty arguments:
     >>> bg.integer_validator()
