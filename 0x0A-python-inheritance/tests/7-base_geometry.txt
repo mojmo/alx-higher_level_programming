@@ -8,6 +8,18 @@ Import BaseGeometry class from the module:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
     >>> bg = BaseGeometry()
 
+area method:
+    >>> bg.area()
+    Traceback (most recent call last):
+        ...
+    TypeError: area() takes 1 positional argument but 2 were given
+
+Try area method with more arguments than expected:
+    >>> bg.area(98)
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
+
 Try normal number:
     >>> bg.integer_validator("my_int", 12)
 
@@ -53,6 +65,12 @@ Try to pass dictionary to the second argument:
         ...
     TypeError: name must be an integer
 
+Try to pass boolean value to the second argument:
+    >>> bg.integer_validator("name", {"num", True})
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
 Try to pass empty arguments:
     >>> bg.integer_validator()
     Traceback (most recent call last):
@@ -65,8 +83,9 @@ Try one missing argument:
         ...
     TypeError: integer_validator() missing 1 required positional argument: 'value'
 
-area method:
-    >>> bg.area()
+Try too many arguments:
+    >>> bg.integer_validator("name", 2, 1)
     Traceback (most recent call last):
         ...
-    Exception: area() is not implemented
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
