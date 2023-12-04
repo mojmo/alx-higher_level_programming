@@ -43,7 +43,7 @@ Try to pass list to the second argument:
     TypeError: name must be an integer
 
 Try to pass tuple to the second argument:
-    >>> bg.integer_validator("name", (98, ))
+    >>> bg.integer_validator("name", (98, 1))
     Traceback (most recent call last):
         ...
     TypeError: name must be an integer
