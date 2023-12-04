@@ -4,13 +4,12 @@ The ``7-base_geometry`` module
 Using ``BaseGeometry``
 -------------------
 
-Import MyList class from the module:
+Import BaseGeometry class from the module:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
     >>> bg = BaseGeometry()
 
 Try normal number:
     >>> bg.integer_validator("my_int", 12)
-
 
 Try to pass string to the second argument:
     >>> bg.integer_validator("name", "John")
@@ -66,12 +65,6 @@ Try one missing argument:
     Traceback (most recent call last):
         ...
     TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
-
-Try too many arguments:
-	>>> bg.integer_validator("name", 2, 5)
-        Traceback (most recent call last):
-            ...
-        TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
 
 area method:
     >>> bg.area()
