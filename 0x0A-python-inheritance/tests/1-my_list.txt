@@ -42,3 +42,37 @@ Import MyList class from the module:
 
     >>> my_list.print_sorted()
     [1, 2, 3, 4, 5]
+
+6. Test that the list isn't ordered.
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+7. Test empty list.
+    >>> empty_list = MyList()
+    >>> empty_list.print_sorted()
+    []
+
+8. Test single element.
+    >>> single_element_list = MyList()
+    >>> single_element_list.append(23)
+    >>> single_element_list.print_sorted()
+    [23]
+
+9. Test duplicated numbers.
+    >>> duplicated_list = MyList()
+    >>> duplicated_list.append(9)
+    >>> duplicated_list.append(3)
+    >>> duplicated_list.append(2)
+    >>> duplicated_list.append(3)
+    >>> duplicated_list.append(-1)
+    >>> duplicated_list.print_sorted()
+    [-1, 2, 3, 3, 9]
+
+10. Test negative numbers.
+    >>> negative_list = MyList()
+    >>> negative_list.append(-3)
+    >>> negative_list.append(0)
+    >>> negative_list.append(-2)
+    >>> negative_list.append(-87)
+    >>> negative_list.print_sorted()
+    [-87, -3, -2, 0]
