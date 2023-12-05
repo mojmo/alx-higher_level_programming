@@ -33,29 +33,33 @@ def print_stats(total_size, status_count):
 if __name__ == "__main__":
     import sys
 
+    i = 0
     total_size = 0
     status_count = {}
     valid_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
 
     try:
-        for i, line in enumerate(sys.stdin, 1):
+        for line in sys.stdin:
+            if i == 10:
+                print_stats(total_size, status_count)
+            else:
+                i += 1
+
             data = line.split()
 
-            if len(data) >= 2:
-                try:
-                    status_code = int(data[-2])
-                    file_size = int(data[-1])
-                    total_size += file_size
+            try:
+                status_code = int(data[-2])
+                file_size = int(data[-1])
+                total_size += file_size
 
-                    if str(status_code) in valid_codes:
-                        status_count[status_code] = \
-                            status_count.get(status_code, 0) + 1
+                if str(status_code) in valid_codes:
+                    status_count[status_code] = \
+                        status_count.get(status_code, 0) + 1
 
-                    if i % 10 == 0:
-                        print_stats(total_size, status_count)
+            except (ValueError, IndexError):
+                pass
 
-                except ValueError:
-                    pass
+        print_stats(total_size, status_count)
 
     except KeyboardInterrupt:
         print_stats(total_size, status_count)
