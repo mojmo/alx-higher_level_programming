@@ -53,8 +53,8 @@ if __name__ == "__main__":
                 pass
 
             try:
-                status_code = int(data[-2])
-                if str(status_code) in valid_codes:
+                status_code = data[-2]
+                if status_code in valid_codes:
                     status_count[status_code] = \
                         status_count.get(status_code, 0) + 1
 
