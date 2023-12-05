@@ -48,15 +48,17 @@ if __name__ == "__main__":
             data = line.split()
 
             try:
-                status_code = int(data[-2])
-                file_size = int(data[-1])
-                total_size += file_size
+                total_size += int(data[-1])
+            except (ValueError, IndexError):
+                pass
 
+            try:
+                status_code = int(data[-2])
                 if str(status_code) in valid_codes:
                     status_count[status_code] = \
                         status_count.get(status_code, 0) + 1
 
-            except (ValueError, IndexError):
+            except IndexError:
                 pass
 
         print_stats(total_size, status_count)
