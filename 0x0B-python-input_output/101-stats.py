@@ -55,8 +55,11 @@ if __name__ == "__main__":
             try:
                 status_code = data[-2]
                 if status_code in valid_codes:
-                    status_count[status_code] = \
-                        status_count.get(status_code, 0) + 1
+
+                    if status_count.get(status_code, -1) == -1:
+                        status_count[status_code] = 1
+                    else:
+                        status_count[status_code] += 1
 
             except IndexError:
                 pass
