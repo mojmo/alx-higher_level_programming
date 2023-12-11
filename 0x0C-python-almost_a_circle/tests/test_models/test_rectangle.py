@@ -188,6 +188,18 @@ class TestRectangleWidth(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Rectangle(b'width', 4)
 
+    def test_width_complex(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(complex(3), 4)
+
+    def test_width_bytearray(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(bytearray(b'width'), 4)
+
+    def test_width_memoryview(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(memoryview(b'width'), 4)
+
     def test_width_inf(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Rectangle(float('inf'), 4)
@@ -258,6 +270,18 @@ class TestRectangleHeight(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             Rectangle(4, b'height')
 
+    def test_height_bytearray(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(1, bytearray(b'abcdefg'))
+
+    def test_height_memoryview(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(1, memoryview(b'abcedfg'))
+
+    def test_height_complex(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(1, complex(5))
+
     def test_height_inf(self):
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             Rectangle(4, float('inf'))
@@ -325,6 +349,18 @@ class TestRectangleX(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Rectangle(1, 2, b'X')
 
+    def test_x_bytearray(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(1, 2, bytearray(b'x'))
+
+    def test_x_memoryview(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(1, 2, memoryview(b'x'))
+
+    def test_x_complex(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(1, 2, complex(5))
+
     def test_x_inf(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Rectangle(1, 2, float('inf'))
@@ -390,6 +426,18 @@ class TestRectangleY(unittest.TestCase):
     def test_y_bytes(self):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Rectangle(1, 2, 3, b'Y')
+
+    def test_y_complex(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(1, 2, 3, complex(5))
+
+    def test_y_bytearray(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(1, 2, 3, bytearray(b'abcdefg'))
+
+    def test_y_memoryview(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(1, 2, 3, memoryview(b'abcedfg'))
 
     def test_y_inf(self):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):

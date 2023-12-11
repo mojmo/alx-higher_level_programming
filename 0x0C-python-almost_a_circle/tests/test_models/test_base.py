@@ -85,6 +85,18 @@ class TestBaseInit(unittest.TestCase):
         obj = Base(True)
         self.assertEqual(obj.id, True)
 
+    def test_range_id(self):
+        self.assertEqual(range(5), Base(range(5)).id)
+
+    def test_bytes_id(self):
+        self.assertEqual(b'Hello', Base(b'Hello').id)
+
+    def test_bytearray_id(self):
+        self.assertEqual(bytearray(b'Hello'), Base(bytearray(b'Hello')).id)
+
+    def test_memoryview_id(self):
+        self.assertEqual(memoryview(b'Hello'), Base(memoryview(b'Hello')).id)
+
     def test_inf_id(self):
         obj = Base(float('inf'))
         self.assertEqual(obj.id, float('inf'))

@@ -165,6 +165,18 @@ class TestSquareSize(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Square(b'width', 4)
 
+    def test_size_bytearray(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(bytearray(b'abcdefg'))
+
+    def test_size_memoryview(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(memoryview(b'abcdefg'))
+
+    def test_size_complex(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(complex(5))
+
     def test_size_inf(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Square(float('inf'), 4)
@@ -232,6 +244,18 @@ class TestSquareX(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Square(2, b'X')
 
+    def test_complex_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, complex(5))
+
+    def test_bytearray_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, bytearray(b'abcdefg'))
+
+    def test_memoryview_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, memoryview(b'abcedfg'))
+
     def test_x_inf(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Square(2, float('inf'))
@@ -298,6 +322,18 @@ class TestSquareY(unittest.TestCase):
     def test_y_bytes(self):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Square(2, 3, b'Y')
+
+    def test_y_complex(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 3, complex(5))
+
+    def test_bytes_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 3, b'Hello')
+
+    def test_bytearray_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 3, bytearray(b'Hello'))
 
     def test_y_inf(self):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
