@@ -45,7 +45,7 @@ class Base:
             str: JSON-formatted string.
         """
 
-        if list_dictionaries is None or len(list_dictionaries) == 0:
+        if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         return json.dumps(list_dictionaries)
 
@@ -94,7 +94,7 @@ class Base:
             Base: An instance of the class.
         """
 
-        if dictionary and len(dictionary) != 0:
+        if dictionary and dictionary != {}:
             if cls.__name__ == "Rectangle":
                 dummy_instance = cls(2, 2)
             else:
