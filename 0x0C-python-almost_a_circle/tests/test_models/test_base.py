@@ -153,8 +153,7 @@ class TestBaseSaveToFile(unittest.TestCase):
     data to JSON files and handling different inputs.
     """
 
-    @classmethod
-    def tearDown(cls):
+    def tearDown(self):
         """Delete any created files during testing."""
         try:
             os.remove("Base.json")
@@ -341,8 +340,7 @@ class TestBaseLoadFromFile(unittest.TestCase):
     method in the Base class
     """
 
-    @classmethod
-    def tearDown(cls):
+    def tearDown(self):
         """Delete any created files during testing."""
         try:
             os.remove("Base.json")
@@ -408,8 +406,7 @@ class TestBaseSaveToFileCsv(unittest.TestCase):
     method in the Base class
     """
 
-    @classmethod
-    def tearDown(cls):
+    def tearDown(self):
         """Delete any created files during testing."""
         try:
             os.remove("Base.csv")
@@ -479,8 +476,7 @@ class TestBaseLoadFromFileCsv(unittest.TestCase):
     method in the Base class
     """
 
-    @classmethod
-    def tearDown(cls):
+    def tearDown(self):
         """Delete any created files during testing."""
         try:
             os.remove("Base.csv")
