@@ -9,7 +9,7 @@ arguments: MySQL username, password, and database name.
 import MySQLdb
 from sys import argv
 
-if __name__ == 'main':
+if __name__ == '__main__':
     # Connect to the MySQL database using the provided credentials
     conn = MySQLdb.connect(
         host="localhost",
@@ -26,3 +26,6 @@ if __name__ == 'main':
 
     for row in query_rows:
         print(row)
+
+    cur.close()
+    conn.close()
