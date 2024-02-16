@@ -24,10 +24,9 @@ if __name__ == "__main__":
     session = Session()
 
     # Fetch all states whose names contain the letter 'a' from the database
-    for state in (session.query(State)
-                  .filter(State.name.contains('a'))
-                  .order_by(State.id).all()):
-        session.delete(state)
-        session.commit()
+    for state in session.query(State):
+        if "a" in state.name:
+            session.delete(state)
+    session.commit()
 
     session.close()
