@@ -29,9 +29,7 @@ if __name__ == '__main__':
                 WHERE BINARY states.`name` = %s
                 ORDER BY cities.`id` ASC""", (argv[4],))
 
-    for row in cur.fetchall():
-        print(row[0], end=", ")
-    print()
+    print(", ".join([row[0] for row in cur.fetchall()]))
 
     cur.close()
     conn.close()
