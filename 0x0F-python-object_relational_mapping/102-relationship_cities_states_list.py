@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 
 """
-Script to fetch and print states with associated cities from the
-database using SQLAlchemy.
+Script to fetch and print cities along with their associated states
+from the database using SQLAlchemy.
 
-This script connects to a MySQL database, fetches all states along
-with their associated cities, and prints them in the format:
-<State ID>: <State Name>
-    <City ID>: <City Name>
+This script connects to a MySQL database, fetches all cities along with
+their associated states, and prints them in the format:
+<City ID>: <City Name> -> <State Name>
 """
 
 import sys
@@ -26,9 +25,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for state in session.query(State).order_by(State.id):
-        print(f"{state.id}: {state.name}")
-        for city in state.cities:
-            print(f"\t{city.id}: {city.name}")
+    for city in session.query(City).order_by(City.id):
+        print(f"{city.id}: {city.name} -> {city.state.name}")
 
     session.close()
