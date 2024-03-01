@@ -12,11 +12,13 @@ import requests
 if __name__ == "__main__":
     repo = argv[1]
     owner = argv[2]
-
     res = requests.get(f"https://api.github.com/repos/{owner}/{repo}/commits")
     json_res = res.json()
 
-    for i in range(10):
-        author = json_res[i].get("commit").get("author").get("name")
-        sha = json_res[i].get("sha")
-        print(f'{sha}: {author}')
+    try:
+        for i in range(10):
+            author = json_res[i].get("commit").get("author").get("name")
+            sha = json_res[i].get("sha")
+            print(f'{sha}: {author}')
+    except IndexError:
+        pass
