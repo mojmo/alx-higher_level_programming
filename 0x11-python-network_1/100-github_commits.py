@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""This script retrieves the latest 10 commit SHAs and their authors
-from a GitHub repository.
+"""retrieves the latest 10 commits from a GitHub repository.
 
 Usage: ./100-github_commits.py <repository> <owner>
 """
