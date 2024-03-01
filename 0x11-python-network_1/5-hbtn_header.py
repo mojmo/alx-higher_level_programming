@@ -6,12 +6,12 @@ from the response.
 """
 
 import requests
-from sys import argv
+import sys
+
 
 if __name__ == "__main__":
 
-    url = argv[1]
+    url = sys.argv[1]
 
     res = requests.get(url)
-
     print(res.headers.get("X-Request-Id"))
