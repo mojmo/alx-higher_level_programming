@@ -13,10 +13,7 @@ if __name__ == "__main__":
         c = argv[1]
 
     values = {"q": c}
-    r = requests.post(
-        "http://16a435770e75.d82e1789.alx-cod.online:5000/search_user",
-        data=values
-    )
+    r = requests.post("http://0.0.0.0:5000/search_user", data=values)
 
     try:
         json_res = r.json()
