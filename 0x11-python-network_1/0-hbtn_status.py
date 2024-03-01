@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """This script sends an HTTP GET request to a specified URL
 and prints information about the response received.
 
